@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--vue的特性：数据驱动视图 双向数据绑定 -->
+
+
+    <!-- vue的指令按照不同的用途可以分为六类 -->
+    <!-- 内容渲染指令 -->
+    <!-- 属性绑定指令 -->
+    <!-- 事件绑定指令 -->
+    <!-- 双向绑定指令 -->
+    <!-- 条件渲染指令 -->
+    <!-- 列表渲染指令 -->
+
+
+
+
+
+    <div id="app">
+        <!-- v-text="data中的属性名" -->
+        <p v-text="name"></p>
+        <h2 v-text="name">你好</h2>
+        <h3 v-text="age"></h3>
+
+        <hr>
+        <!-- 插值表达式 -->
+        <!-- 只能用于填充元素中的内容不能用于属性中 -->
+        <h3>姓名：{{ name }}</h3>
+        <h3>地址：{{ address }}</h3>
+        <h4>性别：{{ this.gender }}</h4>
+        <!-- 不能解析标签 -->
+        <h3>{{info}}</h3>
+        <hr>
+
+        <!-- v-html  主要用来解析标签 -->
+        <!-- 也会覆盖标签中原有的内容 -->
+        <h3 v-html="info">hello world</h3>
+        <!-- 也能正常使用data中的其他属性 -->
+        <h3 v-html="gender"></h3>
+        <h3 v-html="name"></h3>
+
+
+
+    </div>
+    <script src="/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                name: "张三",
+                address: "济南",
+                gender: "男",
+                age: 18,
+                info: "<h1>我是一个标签</h1>"
+            }
+        })
+    </script>
+</body>
+
+</html>
