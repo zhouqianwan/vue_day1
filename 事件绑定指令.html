@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>count的值是：{{ count }}</h3>
+        <button v-on:click="add">点击加一</button>
+        <button v-on:click="subtract">点我减一</button>
+
+        <hr>
+        <h3>简化形式：count的值为：{{ count }}</h3>
+        <button @click="adds">点我加一</button>
+        <button @click="subtracts">点我减一</button>
+
+
+    </div>
+    <script src="vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                name: "张三",
+                count: 25
+            },
+            methods: {
+                add: function() {
+                    this.count++;
+                },
+                subtract: function() {
+                    this.count--;
+                },
+                adds() {
+                    this.count++;
+                },
+                subtracts() {
+                    this.count--;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>count的值是： {{ count }}</h3>
+        <!-- 事件类型的后面可以传参数 -->
+        <button @click="add(2,$event)">点我加1</button>
+        <button @click="subtract">点我减1</button>
+
+        <hr>
+        <button @click="adds">+1</button>
+        <button @click="subtracts">-1</button>
+
+        <hr>
+        <a href="http://www.baidu.com" @click.prevent="hahaha">百度</a>
+
+        <div class="box" @click="big" style="width: 100px;height:100px;background-color:red">
+            <!-- 让这个小的阻止冒泡 -->
+            <div class="min" @click.stop="min" style="width: 50px;height:50px;background-color:pink;"></div>
+        </div>
+    </div>
+    <script src="vue-2.6.12.js"></script>
+    <script>
+        let i = 0;
+
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                name: "张三",
+                count: 66
+            },
+            methods: {
+                add(n, e) {
+                    this.count += n;
+                    i++;
+                    console.log(i);
+                    if (i % 2 == 0) {
+                        e.target.style.background = "pink"
+                    } else {
+                        e.target.style.background = ""
+
+                    }
+                },
+                subtract(e) {
+                    this.count--;
+                    e.target.style.backgroundColor = "red"
+                },
+                adds(e) {
+                    this.count++;
+                    if (this.count % 2 == 0) {
+                        e.target.style.color = "red"
+                    }
+                },
+                subtracts() {
+                    this.count--;
+                },
+                hahaha(e) {
+                    // e.preventDefault();
+                    console.log(111111);
+                },
+                big() {
+                    console.log("big");
+                },
+                min() {
+                    console.log("min");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
