@@ -47,7 +47,19 @@
         <h3 v-html="gender"></h3>
         <h3 v-html="name"></h3>
 
-
+        <hr>
+        <input type="text" :placeholder="tips" :value="name">
+        <input type="text" :placeholder="tips">
+        <input type="text" :value="name">
+        <hr>
+        <!-- 插值表达式里面所有的内容只能使用js表达式 -->
+        <h3>{{ age+1 }}</h3>
+        <h2>{{ 12>2?"大于":"不大于" }}</h2>
+        <h2>{{ userager.toUpperCase().trim() }}</h2>
+        <h2>{{ true+1 }}</h2>
+        <!-- 还能进行字符串的拼接 -->
+        <h2>{{ '我的名字是： '+name }}</h2>
+        <div v-bind:title="'我的年龄是'+age" style="width: 200px;height:100px;background-color:red"> </div>
 
     </div>
     <script src="/vue-2.6.12.js"></script>
@@ -59,7 +71,9 @@
                 address: "济南",
                 gender: "男",
                 age: 18,
-                info: "<h1>我是一个标签</h1>"
+                info: "<h1>我是一个标签</h1>",
+                tips: "请输入你想输入的文本",
+                userager: "   gu    mp   "
             }
         })
     </script>
